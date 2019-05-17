@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import com.opencsv.bean.CsvToBean;
@@ -22,7 +23,7 @@ public class Parser {
         InputStreamReader inputStreamReader = null;
         try {
             fileInputStream = new FileInputStream(file);
-            inputStreamReader = new InputStreamReader(fileInputStream, "UTF8");
+            inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
             reader = new BufferedReader(inputStreamReader);
             HeaderColumnNameMappingStrategy<Bean> ms = new HeaderColumnNameMappingStrategy<Bean>();
             ms.setType(Bean.class);
